@@ -1,50 +1,148 @@
+太好了！我帮你做一个 **静态医学知识库网页模板**，可以包含多种疾病信息，并通过导航栏切换不同内容，完全用 HTML、CSS 和少量 JavaScript 来实现，无需后台。下面是示例代码：
+
+```html id="2x0b3h"
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shakespeare Poem</title>
+    <title>Medical Knowledge Base</title>
     <style>
         body {
-            font-family: "Georgia", serif;
-            background-color: #fefefe;
+            font-family: "Arial", sans-serif;
+            margin: 0;
+            background-color: #f5f7fa;
             color: #333;
-            padding: 50px;
-            max-width: 800px;
-            margin: auto;
         }
-        h1 {
+        header {
+            background-color: #1d3557;
+            color: white;
+            padding: 20px;
             text-align: center;
-            color: #4b2e83;
-            margin-bottom: 40px;
         }
-        .poem {
-            line-height: 1.8;
-            font-size: 18px;
-            border-left: 4px solid #4b2e83;
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #457b9d;
+        }
+        nav button {
+            background: none;
+            border: none;
+            color: white;
+            padding: 15px 25px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        nav button:hover {
+            background-color: #1d3557;
+        }
+        .content {
+            max-width: 900px;
+            margin: 40px auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        h2 {
+            color: #1d3557;
+        }
+        ul {
+            line-height: 1.6;
             padding-left: 20px;
+        }
+        .hidden {
+            display: none;
+        }
+        footer {
+            text-align: center;
+            font-size: 14px;
+            color: #888;
+            margin: 40px 0;
         }
     </style>
 </head>
 <body>
-    <h1>Shakespeare Poem</h1>
-    <div class="poem">
-        <p>
-            Shall I compare thee to a summer's day?<br>
-            Thou art more lovely and more temperate:<br>
-            Rough winds do shake the darling buds of May,<br>
-            And summer's lease hath all too short a date;<br>
-            Sometime too hot the eye of heaven shines,<br>
-            And often is his gold complexion dimmed;<br>
-            And every fair from fair sometime declines,<br>
-            By chance or nature's changing course untrimmed;<br>
-            But thy eternal summer shall not fade<br>
-            Nor lose possession of that fair thou ow'st;<br>
-            Nor shall death brag thou wander'st in his shade,<br>
-            When in eternal lines to time thou grow'st;<br>
-            So long as men can breathe or eyes can see,<br>
-            So long lives this, and this gives life to thee.
-        </p>
+
+<header>
+    <h1>Medical Knowledge Base</h1>
+</header>
+
+<nav>
+    <button onclick="showContent('diabetes')">Diabetes</button>
+    <button onclick="showContent('hypertension')">Hypertension</button>
+    <button onclick="showContent('asthma')">Asthma</button>
+</nav>
+
+<div class="content">
+    <div id="diabetes">
+        <h2>Diabetes Mellitus</h2>
+        <p>Diabetes mellitus is a chronic medical condition in which the body is unable to properly regulate blood glucose levels.</p>
+        <h3>Symptoms:</h3>
+        <ul>
+            <li>Increased thirst and urination</li>
+            <li>Extreme fatigue</li>
+            <li>Unexplained weight loss</li>
+            <li>Blurred vision</li>
+        </ul>
+        <h3>Management:</h3>
+        <p>Healthy diet, exercise, blood sugar monitoring, and medications as prescribed.</p>
     </div>
+
+    <div id="hypertension" class="hidden">
+        <h2>Hypertension (High Blood Pressure)</h2>
+        <p>Hypertension is a condition where the blood pressure in the arteries is persistently elevated, increasing the risk of heart disease and stroke.</p>
+        <h3>Symptoms:</h3>
+        <ul>
+            <li>Often asymptomatic</li>
+            <li>Headaches</li>
+            <li>Dizziness</li>
+            <li>Shortness of breath</li>
+        </ul>
+        <h3>Management:</h3>
+        <p>Lifestyle modifications, regular monitoring, and medications if necessary.</p>
+    </div>
+
+    <div id="asthma" class="hidden">
+        <h2>Asthma</h2>
+        <p>Asthma is a chronic condition that affects the airways, causing episodes of wheezing, breathlessness, chest tightness, and coughing.</p>
+        <h3>Symptoms:</h3>
+        <ul>
+            <li>Wheezing</li>
+            <li>Shortness of breath</li>
+            <li>Chest tightness</li>
+            <li>Coughing, especially at night or early morning</li>
+        </ul>
+        <h3>Management:</h3>
+        <p>Inhalers, avoiding triggers, and regular monitoring of lung function.</p>
+    </div>
+</div>
+
+<footer>
+    © 2026 Medical Knowledge Base
+</footer>
+
+<script>
+    function showContent(sectionId) {
+        const sections = ['diabetes', 'hypertension', 'asthma'];
+        sections.forEach(id => {
+            document.getElementById(id).classList.add('hidden');
+        });
+        document.getElementById(sectionId).classList.remove('hidden');
+    }
+</script>
+
 </body>
 </html>
+```
+
+### 功能特点：
+
+1. **导航栏切换疾病信息**：点击“Diabetes”“Hypertension”“Asthma”按钮即可切换不同内容。
+2. **完全静态网页**：只需保存为 `.html` 文件即可使用，无需服务器。
+3. **专业、干净排版**：卡片式内容区，清晰易读。
+4. **可扩展**：你可以增加更多疾病，只需复制 `<div id="newdisease">...</div>` 并在导航栏加按钮即可。
+
+我可以帮你升级这个版本，做一个 **多疾病、带搜索和目录功能的完整医学知识库静态网页**，用户可以快速查找任何疾病信息，完全静态。
+
+你希望我做这个增强版吗？
