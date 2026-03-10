@@ -1,262 +1,451 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>MediCore – Your Health & Medical Knowledge Hub</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    body {
-      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-      line-height: 1.6;
-      color: #f0f4f8;
-      background: #0d1b2a;
-      min-height: 100vh;
-    }
+<title>Green Network | Global Environmental Protection</title>
 
-    /* 背景图层 */
-    .background {
-      position: fixed;
-      inset: 0;
-      z-index: -2;
-      background: linear-gradient(rgba(13, 27, 42, 0.88), rgba(13, 27, 42, 0.92)),
-                  url('https://images.unsplash.com/photo-1576092768241-dec231879fc3?ixlib=rb-4.0.3&auto=format&fit=crop&w=2400&q=90') center center / cover no-repeat;
-    }
+<meta name="description" content="Green Network is a global environmental organization dedicated to sustainability, reforestation and renewable energy.">
+<meta name="keywords" content="environment, sustainability, green energy, reforestation, climate action">
 
-    .overlay {
-      position: fixed;
-      inset: 0;
-      background: linear-gradient(135deg, rgba(2,0,36,0.4) 0%, rgba(9,121,111,0.25) 35%, rgba(0,212,255,0.15) 100%);
-      z-index: -1;
-    }
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    header {
-      background: rgba(22, 41, 64, 0.78);
-      backdrop-filter: blur(10px);
-      padding: 1.2rem 5%;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      border-bottom: 1px solid rgba(255,255,255,0.08);
-    }
+<style>
 
-    nav {
-      max-width: 1400px;
-      margin: 0 auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Segoe UI,Tahoma,Geneva,Verdana,sans-serif
+}
 
-    .logo {
-      font-size: 1.8rem;
-      font-weight: 700;
-      color: #4cc9f0;
-      letter-spacing: -0.5px;
-    }
+:root{
+--primary:#2e7d32;
+--secondary:#4caf50;
+--accent:#8bc34a;
+--light:#e8f5e9;
+--dark:#1b5e20;
+--text:#333;
+--white:#fff
+}
 
-    .nav-links a {
-      color: #e0f2fe;
-      text-decoration: none;
-      margin-left: 2.2rem;
-      font-weight: 500;
-      transition: color 0.3s;
-    }
+body{
+background:var(--light);
+color:var(--text);
+line-height:1.6
+}
 
-    .nav-links a:hover {
-      color: #4cc9f0;
-    }
+header{
+background:linear-gradient(to right,var(--primary),var(--secondary));
+color:#fff;
+padding:1rem 0;
+position:sticky;
+top:0;
+z-index:100;
+box-shadow:0 2px 10px rgba(0,0,0,.1)
+}
 
-    main {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 4rem 5% 6rem;
-    }
+.container{
+width:90%;
+max-width:1200px;
+margin:auto
+}
 
-    h1, h2, h3 {
-      color: #a5f3fc;
-      margin-bottom: 1.2rem;
-    }
+.nav-container{
+display:flex;
+justify-content:space-between;
+align-items:center
+}
 
-    h1 {
-      font-size: 3.4rem;
-      font-weight: 800;
-      letter-spacing: -1.2px;
-      background: linear-gradient(90deg, #67e8f9, #22d3ee, #06b6d4);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      margin-bottom: 1.5rem;
-    }
+.logo{
+display:flex;
+align-items:center;
+gap:10px;
+font-size:1.8rem;
+font-weight:700
+}
 
-    .hero {
-      text-align: center;
-      padding: 5rem 0 7rem;
-    }
+nav ul{
+display:flex;
+list-style:none
+}
 
-    .intro {
-      font-size: 1.28rem;
-      max-width: 780px;
-      margin: 0 auto 3rem;
-      color: #cbd5e1;
-    }
+nav ul li{
+margin-left:2rem
+}
 
-    .section {
-      background: rgba(30, 58, 88, 0.45);
-      backdrop-filter: blur(8px);
-      border: 1px solid rgba(255,255,255,0.07);
-      border-radius: 16px;
-      padding: 2.8rem;
-      margin: 3rem 0;
-    }
+nav ul li a{
+color:#fff;
+text-decoration:none;
+font-weight:500
+}
 
-    .grid-2 {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2.5rem;
-      margin-top: 2rem;
-    }
+.hero{
+background:
+linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.4)),
+url("https://images.unsplash.com/photo-1542601906990-b4d3fb778b09");
+background-size:cover;
+background-position:center;
+height:80vh;
+display:flex;
+align-items:center;
+text-align:center;
+color:#fff
+}
 
-    .card {
-      background: rgba(15, 23, 42, 0.6);
-      border-radius: 12px;
-      padding: 1.8rem;
-      border: 1px solid rgba(103,232,249,0.12);
-      transition: all 0.3s ease;
-    }
+.hero h1{
+font-size:3.2rem;
+margin-bottom:1rem
+}
 
-    .card:hover {
-      transform: translateY(-6px);
-      border-color: rgba(103,232,249,0.4);
-      box-shadow: 0 20px 40px rgba(6,182,212,0.15);
-    }
+.hero p{
+font-size:1.2rem;
+margin-bottom:2rem
+}
 
-    .card h3 {
-      color: #67e8f9;
-      margin-bottom: 1rem;
-    }
+.btn{
+display:inline-block;
+background:var(--accent);
+color:#fff;
+padding:.8rem 2rem;
+border-radius:30px;
+text-decoration:none;
+font-weight:600;
+transition:.3s
+}
 
-    footer {
-      text-align: center;
-      padding: 3rem 1rem 4rem;
-      color: #94a3b8;
-      font-size: 0.95rem;
-      border-top: 1px solid rgba(255,255,255,0.06);
-    }
+.btn:hover{
+background:var(--primary);
+transform:translateY(-3px)
+}
 
-    @media (max-width: 768px) {
-      .grid-2 { grid-template-columns: 1fr; }
-      h1 { font-size: 2.6rem; }
-      .nav-links a { margin-left: 1.4rem; font-size: 0.95rem; }
-    }
-  </style>
+section{
+padding:5rem 0
+}
+
+.section-title{
+text-align:center;
+margin-bottom:3rem
+}
+
+.section-title h2{
+font-size:2.4rem;
+color:var(--primary)
+}
+
+.about-content{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:3rem;
+align-items:center
+}
+
+.about-img img{
+width:100%;
+border-radius:10px
+}
+
+.stats{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:2rem;
+margin-top:3rem
+}
+
+.stat-item{
+text-align:center;
+padding:2rem;
+background:#fff;
+border-radius:10px;
+box-shadow:0 5px 15px rgba(0,0,0,.05)
+}
+
+.stat-item i{
+font-size:2rem;
+color:var(--primary)
+}
+
+.stat-item h3{
+font-size:2.3rem;
+margin:.5rem 0
+}
+
+.initiatives{
+background:#fff
+}
+
+.initiatives-grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:2rem
+}
+
+.initiative-card{
+background:var(--light);
+border-radius:10px;
+overflow:hidden;
+box-shadow:0 5px 15px rgba(0,0,0,.05)
+}
+
+.initiative-img img{
+width:100%;
+height:200px;
+object-fit:cover
+}
+
+.initiative-content{
+padding:1.5rem
+}
+
+.cta{
+background:linear-gradient(to right,var(--primary),var(--secondary));
+color:#fff;
+text-align:center;
+padding:5rem 0
+}
+
+footer{
+background:var(--dark);
+color:#fff;
+padding:3rem 0 1rem
+}
+
+.footer-content{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:2rem
+}
+
+.social-links a{
+display:inline-flex;
+align-items:center;
+justify-content:center;
+width:40px;
+height:40px;
+background:rgba(255,255,255,.1);
+border-radius:50%;
+color:#fff;
+margin-right:.5rem
+}
+
+.copyright{
+text-align:center;
+margin-top:2rem;
+border-top:1px solid rgba(255,255,255,.1);
+padding-top:1rem
+}
+
+@media(max-width:900px){
+
+.about-content{
+grid-template-columns:1fr
+}
+
+.initiatives-grid{
+grid-template-columns:1fr 1fr
+}
+
+.stats{
+grid-template-columns:1fr 1fr
+}
+
+.footer-content{
+grid-template-columns:1fr 1fr
+}
+
+}
+
+@media(max-width:600px){
+
+.hero h1{
+font-size:2rem
+}
+
+.initiatives-grid{
+grid-template-columns:1fr
+}
+
+.stats{
+grid-template-columns:1fr
+}
+
+.footer-content{
+grid-template-columns:1fr
+}
+
+}
+
+</style>
 </head>
+
 <body>
 
-<div class="background"></div>
-<div class="overlay"></div>
-
 <header>
-  <nav>
-    <div class="logo">MediCore</div>
-    <div class="nav-links">
-      <a href="#overview">Overview</a>
-      <a href="#prevention">Prevention</a>
-      <a href="#conditions">Common Conditions</a>
-      <a href="#facts">Key Facts</a>
-    </div>
-  </nav>
+<div class="container nav-container">
+
+<div class="logo">
+<i class="fas fa-seedling"></i>
+<span>Green Network</span>
+</div>
+
+<nav>
+<ul>
+<li><a href="#home">Home</a></li>
+<li><a href="#about">About</a></li>
+<li><a href="#initiatives">Initiatives</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+</nav>
+
+</div>
 </header>
 
-<main>
 
-  <section class="hero">
-    <h1>Understanding Health in the Modern Age</h1>
-    <p class="intro">
-      Evidence-based medical knowledge • Preventive healthcare • Early detection • 
-      Personalized wellness • Latest medical insights — all in one place.
-    </p>
-  </section>
+<section class="hero" id="home">
+<div class="container">
 
-  <section class="section" id="overview">
-    <h2>Why Preventive Medicine Matters Now More Than Ever</h2>
-    <p style="margin:1.5rem 0; color:#e2e8f0;">
-      Chronic diseases account for approximately 71% of all global deaths (WHO 2023–2025 data).
-      Most of these conditions develop silently over 10–30 years and are highly preventable.
-    </p>
+<h1>Protect Our Planet</h1>
+<p>Building a sustainable future through global environmental action.</p>
 
-    <div class="grid-2">
-      <div class="card">
-        <h3>Leading Preventable Risk Factors</h3>
-        <ul style="padding-left:1.8rem; color:#cbd5e1;">
-          <li>High blood pressure (1.3 billion people)</li>
-          <li>Elevated fasting glucose / insulin resistance</li>
-          <li>Smoking & second-hand smoke exposure</li>
-          <li>High LDL cholesterol & triglycerides</li>
-          <li>Excess body fat (especially visceral fat)</li>
-          <li>Low physical activity & sedentary time</li>
-          <li>Poor dietary patterns (ultra-processed food dominant)</li>
-        </ul>
-      </div>
+<a href="#about" class="btn">Learn More</a>
 
-      <div class="card">
-        <h3>Most Cost-Effective Interventions</h3>
-        <ol style="padding-left:1.8rem; color:#cbd5e1;">
-          <li>Smoking cessation (highest ROI)</li>
-          <li>Blood pressure control (medication + lifestyle)</li>
-          <li>30–45 min moderate aerobic activity 5×/week</li>
-          <li>≥5 servings vegetables + fruits daily</li>
-          <li>Keeping sleep duration 7–9 hours</li>
-          <li>Moderate alcohol or complete abstinence</li>
-          <li>Annual health screening (age-appropriate)</li>
-        </ol>
-      </div>
-    </div>
-  </section>
+</div>
+</section>
 
-  <section class="section" id="conditions">
-    <h2>Common Serious Conditions – Early Warning Signs</h2>
-    <div class="grid-2">
-      <div class="card">
-        <h3>Cardiovascular & Cerebrovascular</h3>
-        <p>Morning headache • Neck/shoulder stiffness • Chest tightness on exertion • Palpitations at rest • Leg swelling • Nocturia ≥2×</p>
-      </div>
-      <div class="card">
-        <h3>Metabolic / Endocrine</h3>
-        <p>Increasing waist circumference • Acanthosis nigricans • Recurrent fungal infections • Extreme thirst • Slow-healing wounds • Tingling feet/hands</p>
-      </div>
-      <div class="card">
-        <h3>Gastrointestinal & Liver</h3>
-        <p>Persistent bloating • Change in bowel habit >6 weeks • Unexplained weight loss • Dark urine • Pale stool • Right upper quadrant discomfort</p>
-      </div>
-      <div class="card">
-        <h3>Oncologic Red Flags</h3>
-        <p>Hoarseness >3 weeks • Dysphagia • Postmenopausal bleeding • New breast mass • Changing mole (ABCDE) • Blood in stool/urine</p>
-      </div>
-    </div>
-  </section>
 
-  <section class="section" id="facts">
-    <h2>Quick Evidence-Based Health Facts (2025–2026)</h2>
-    <ul style="list-style:none; padding-left:0; font-size:1.1rem; color:#e2e8f0;">
-      <li>→ Walking 4,000 → 8,000 steps/day reduces all-cause mortality by ~50%</li>
-      <li>→ Each 1 cm increase in waist circumference ≈ 4–5% higher cardiovascular risk</li>
-      <li>→ Sleeping <6 h/night increases insulin resistance by ~30% within 1 week</li>
-      <li>→ Eating 30+ different plant foods/week dramatically improves gut microbiome diversity</li>
-      <li>→ Strength training 2×/week reduces cardiovascular mortality by 23–40%</li>
-    </ul>
-  </section>
+<section id="about">
+<div class="container">
 
-</main>
+<div class="section-title">
+<h2>About Green Network</h2>
+<p>A global community dedicated to environmental sustainability.</p>
+</div>
 
-<footer>
-  <p>MediCore – Evidence-Based Health Information • Not a substitute for professional medical advice</p>
-  <p style="margin-top:1rem; font-size:0.9rem;">Last updated: March 2026</p>
+<div class="about-content">
+
+<div class="about-img">
+<img src="https://images.unsplash.com/photo-1507591064344-4c6ce005b128">
+</div>
+
+<div>
+
+<h3>Our Mission</h3>
+
+<p>
+Green Network promotes environmental protection, renewable energy,
+and community-based sustainability projects worldwide.
+</p>
+
+<p>
+Since 2010 we have connected thousands of volunteers,
+scientists and environmental activists across the world.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="stats">
+
+<div class="stat-item">
+<i class="fas fa-tree"></i>
+<h3 class="counter" data-target="2500000">0</h3>
+<p>Trees Planted</p>
+</div>
+
+<div class="stat-item">
+<i class="fas fa-users"></i>
+<h3 class="counter" data-target="50000">0</h3>
+<p>Members</p>
+</div>
+
+<div class="stat-item">
+<i class="fas fa-globe"></i>
+<h3 class="counter" data-target="120">0</h3>
+<p>Countries</p>
+</div>
+
+<div class="stat-item">
+<i class="fas fa-recycle"></i>
+<h3 class="counter" data-target="1500">0</h3>
+<p>Projects</p>
+</div>
+
+</div>
+
+</div>
+</section>
+
+
+<footer id="contact">
+
+<div class="container">
+
+<div class="footer-content">
+
+<div>
+<h3>Green Network</h3>
+<p>Working together for a sustainable planet.</p>
+<div class="social-links">
+<a href="#"><i class="fab fa-facebook"></i></a>
+<a href="#"><i class="fab fa-twitter"></i></a>
+<a href="#"><i class="fab fa-instagram"></i></a>
+</div>
+</div>
+
+<div>
+<h3>Contact</h3>
+<p><i class="fas fa-envelope"></i> support@greennetwork.org</p>
+<p><i class="fas fa-phone"></i> +1 312 171 0771</p>
+</div>
+
+</div>
+
+<div class="copyright">
+<p>© <span id="year"></span> Green Network</p>
+</div>
+
+</div>
+
 </footer>
+
+
+<script>
+
+document.getElementById("year").textContent=new Date().getFullYear()
+
+const counters=document.querySelectorAll(".counter")
+
+counters.forEach(counter=>{
+
+const update=()=>{
+
+const target=+counter.dataset.target
+const current=+counter.innerText
+
+const increment=target/200
+
+if(current<target){
+
+counter.innerText=Math.ceil(current+increment).toLocaleString()
+
+requestAnimationFrame(update)
+
+}else{
+
+counter.innerText=target.toLocaleString()
+
+}
+
+}
+
+update()
+
+})
+
+</script>
 
 </body>
 </html>
